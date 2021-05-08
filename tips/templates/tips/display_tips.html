@@ -1,0 +1,19 @@
+{% extends 'tips/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block heading %} Tweets {% endblock %}
+
+{% block body %}
+    {% for tweet in tweets %}
+
+    <div class="pytip">
+        {{tweet}} <br><br>
+    </div>
+
+    {% endfor %}
+
+<a href="{% url 'logout' %}">Logout</a>
+
+{% endblock %}
+

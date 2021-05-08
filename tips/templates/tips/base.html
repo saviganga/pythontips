@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<style>
+    body{
+
+    color:black;
+    font: 20px bold ariel,sans-serif;
+    margin: 10px auto;
+    padding: 20px;
+    }
+
+    #body{
+    border: 2px solid black;
+    padding: 20px;
+    background: #fff;
+    }
+
+    h1{
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    }
+
+    form{
+    text-align: center;
+    }
+
+    input{
+    height:4vh;
+    border-radius:5px;
+    width: 50%;
+    transition: margin-left o.3s ease-in-out;
+    font-size:18px;
+    }
+
+    button{
+    background: #00FF33;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3 ease;
+    }
+
+    .pagination{
+    border: 2px solid black;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+    }
+
+    .pytip{
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px
+    }
+
+</style>
+<body>
+<div id="header">
+    <h1>{% block heading %} {% endblock %}</h1>
+
+    <form action="{% url 'search-page' %}" method="get">
+        <input name="query" type="text" placeholder="search">
+        <br>
+        <button type="submit" name="button">Search</button>
+    </form>
+    <br><br>
+
+</div>
+ <div id="body">
+     {% block body %} {% endblock %}
+ </div>
+<hr>
+    <div class="pagination">
+        <span class="step-links">
+            {% if tweets.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ tweets.previous_page_number}}">Previous</a>
+            {% endif %}
+            <span class="current">
+                page {{ tweets.number }} of {{ tweets.paginator.num_pages }}
+            </span>
+            {% if tweets.has_next %}
+                <a href="?page={{ tweets.next_page_number }}">next</a>
+                <a href="?page={{ tweets.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+            <a href="{% url 'homepage' %}">Home</a>
+        </span>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'tips/base.html' %}
+
+{% block title %} Results {% endblock %}
+
+{% block body %}
+
+{{ searchword }}
+
+    {% for tweet in tweets  %}
+    <div class="pytip">
+        {{tweet}}<br><br>
+    </div>
+    {% endfor %}
+
+{% endblock %}
