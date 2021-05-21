@@ -1,0 +1,36 @@
+version: 2.1
+
+# jobs for build server
+jobs:
+  build:
+
+    # docker image with python3 and circleci
+    docker:
+      - image: circleci/python:3.8
+
+    working_directory: ~/pytipsapp
+
+    # steps (commands ) to run in container terminal
+    steps:
+
+      # checkout the git repository
+      - checkout
+
+      # install dependencies
+      - run:
+        name: install dependencies
+        command: |
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
+
+      # run migrations
+      - run:
+          name: running migrations
+          command: |
+            . venv/bin/activate
+            python manage.py makemigrations
+            python manage.py migrate
+
+
+
