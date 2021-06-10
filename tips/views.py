@@ -42,9 +42,9 @@ def sync_db(request):
             username=col[2],
             tip=col[1],
             email=col[3],
-            created_at=datetime.strptime(col[0], '%m/%d/%Y %H:%M:%S')
+            created_at=datetime.strptime(col[0], '%m/%d/%Y %H:%M:%S'),
         )
-        print(f'\n\n{col[0]}\n\n')
+
     context = {}
     return render(request, template, context)
 
