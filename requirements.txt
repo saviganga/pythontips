@@ -2,6 +2,7 @@ asgiref==3.3.4
 cachetools==4.2.1
 certifi==2020.12.5
 chardet==4.0.0
+dj-database-url==0.5.0
 Django==3.2
 django-rest-framework==0.1.0
 djangorestframework==3.12.4
@@ -21,6 +22,7 @@ oauthlib==3.1.0
 packaging==20.9
 pandas==1.2.3
 protobuf==3.15.8
+psycopg2==2.8.6
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pyparsing==2.4.7
