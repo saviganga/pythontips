@@ -8,6 +8,8 @@ RUN mkdir /app
 #set home directory as working directory
 WORKDIR /app
 
+RUN . venv/bin/activate
+
 #copy local directory to container directory
 COPY . /app
 
