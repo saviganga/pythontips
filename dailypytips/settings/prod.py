@@ -2,6 +2,8 @@ from .base import *
 from decouple import config, Csv
 import dj_database_url
 
+SECRET_KEY = config('SECRET_KEY')
+
 DEBUG = True
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
