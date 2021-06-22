@@ -1,7 +1,6 @@
 from .base import *
-from decouple import config
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'madagascar'
 
 DEBUG = True
 
